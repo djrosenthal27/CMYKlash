@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     int xMove;
     int yMove;
     int rotation;
+    string state;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
         xMove = 0;
         yMove = 0;
         rotation = 0;
+        state = "Triangle";
     }
 
     // Update is called once per frame
@@ -61,5 +63,15 @@ public class PlayerMovement : MonoBehaviour
         }
         rb.velocity = new Vector2(movementSpeed * xMove, movementSpeed * yMove);
         rb.angularVelocity = rotation * rotationSpeed;
+    }
+
+    public void SetState(string newState)
+    {
+        state = newState;
+    }
+
+    public string GetState()
+    {
+        return state;
     }
 }
