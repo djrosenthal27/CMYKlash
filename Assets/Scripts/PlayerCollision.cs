@@ -20,11 +20,20 @@ public class PlayerCollision : MonoBehaviour
         string colliderTag = collider.gameObject.tag;
         string gameObjectTag = this.gameObject.tag;
         GameObject player = GameObject.FindWithTag("Player");
+        
+        player.transform.GetChild(4).gameObject.GetComponent<CircleCollider2D>().enabled = false;
+        player.transform.GetChild(5).gameObject.GetComponent<CircleCollider2D>().enabled = false;
+        player.transform.GetChild(6).gameObject.GetComponent<CircleCollider2D>().enabled = false;
+
+     //   Debug.Log("Enemy:" + colliderTag + " Player:" + gameObjectTag);
         if ((colliderTag == "Yellow" && (gameObjectTag == "Yellow" || gameObjectTag == "Red" || gameObjectTag == "Green"))
             || (colliderTag == "Magenta" && (gameObjectTag == "Magenta" || gameObjectTag == "Red" || gameObjectTag == "Blue"))
             || (colliderTag == "Cyan" && (gameObjectTag == "Cyan" || gameObjectTag == "Blue" || gameObjectTag == "Green")))
         {
             Destroy(collider.gameObject, 0.0f);
+            player.transform.GetChild(4).gameObject.GetComponent<CircleCollider2D>().enabled = true;
+            player.transform.GetChild(5).gameObject.GetComponent<CircleCollider2D>().enabled = true;
+            player.transform.GetChild(6).gameObject.GetComponent<CircleCollider2D>().enabled = true;
         }
         else
         {
@@ -32,12 +41,12 @@ public class PlayerCollision : MonoBehaviour
             {
                 player.transform.GetChild(0).gameObject.SetActive(false);
                 //  player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;       
-                GameObject explosion = player.transform.GetChild(1).gameObject;
+                GameObject explosion = player.transform.GetChild(10).gameObject;
                 explosion.transform.parent = null;
 
-                player.transform.GetChild(4).gameObject.GetComponent<CircleCollider2D>().enabled = false;
-                player.transform.GetChild(5).gameObject.GetComponent<CircleCollider2D>().enabled = false;
-                player.transform.GetChild(6).gameObject.GetComponent<CircleCollider2D>().enabled = false;
+ //               player.transform.GetChild(4).gameObject.GetComponent<CircleCollider2D>().enabled = false;
+ //               player.transform.GetChild(5).gameObject.GetComponent<CircleCollider2D>().enabled = false;
+ //               player.transform.GetChild(6).gameObject.GetComponent<CircleCollider2D>().enabled = false;
 
 
                 if (gameObjectTag == "Yellow" || gameObjectTag == "Green")
