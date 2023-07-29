@@ -23,7 +23,7 @@ public class SpawnerScript : MonoBehaviour
         }
         else
         {
-            int height = Random.Range(-5, 5);
+            int height = Random.Range(-4, 4);
             Instantiate(Enemy, new Vector3(transform.position.x, height, transform.position.z), transform.rotation);
             timer = 0;
         }
