@@ -39,14 +39,14 @@ public class PlayerCollision : MonoBehaviour
 
                 if (gameObjectTag == "Yellow" || gameObjectTag == "Green")
                 {
-                    player.transform.GetChild(6).gameObject.SetActive(false);
+                    player.transform.GetChild(6).gameObject.transform.GetChild(1).GetComponent<Animator>().SetTrigger("Active");
                     player.transform.GetChild(9).gameObject.SetActive(true);
                     player.transform.GetChild(4).gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 0, 255, .13f);
                     player.transform.GetChild(4).gameObject.tag = "Blue";
                 }
                 else if (gameObjectTag == "Magenta" || gameObjectTag == "Red")
                 {
-                    player.transform.GetChild(4).gameObject.SetActive(false);
+                    player.transform.GetChild(4).gameObject.transform.GetChild(1).GetComponent<Animator>().SetTrigger("Active");
                     player.transform.GetChild(8).gameObject.SetActive(true);
                     // player.transform.GetChild(8).gameObject.GetComponent<SpriteRenderer>().enabled = true;
                     // player.transform.GetChild(8).gameObject.transform.GetChild(0).gameObject.SetActive(true);
@@ -56,7 +56,7 @@ public class PlayerCollision : MonoBehaviour
                 }
                 else if (gameObjectTag == "Cyan" || gameObjectTag == "Blue")
                 {
-                    player.transform.GetChild(5).gameObject.SetActive(false);
+                    player.transform.GetChild(5).gameObject.transform.GetChild(1).GetComponent<Animator>().SetTrigger("Active");
                     player.transform.GetChild(7).gameObject.SetActive(true);
                     player.transform.GetChild(6).gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0, .13f);
                     player.transform.GetChild(6).gameObject.tag = "Red";
@@ -111,13 +111,13 @@ public class PlayerCollision : MonoBehaviour
                         if (Vector3.Distance(player.transform.GetChild(4).gameObject.transform.position, collider.gameObject.transform.position)
                             > Vector3.Distance(player.transform.GetChild(5).gameObject.transform.position, collider.gameObject.transform.position))
                         {
-                            player.transform.GetChild(5).gameObject.SetActive(false);
+                            player.transform.GetChild(5).gameObject.transform.GetChild(1).GetComponent<Animator>().SetTrigger("Active");
                             player.transform.GetChild(4).gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, .13f);
                             player.transform.GetChild(4).gameObject.tag = "White";
                         }
                         else
                         {
-                            player.transform.GetChild(4).gameObject.SetActive(false);
+                            player.transform.GetChild(4).gameObject.transform.GetChild(1).GetComponent<Animator>().SetTrigger("Active");
                             player.transform.GetChild(5).gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, .13f);
                             player.transform.GetChild(5).gameObject.tag = "White";
                         }
@@ -127,13 +127,13 @@ public class PlayerCollision : MonoBehaviour
                         if (Vector3.Distance(player.transform.GetChild(4).gameObject.transform.position, collider.gameObject.transform.position)
                             > Vector3.Distance(player.transform.GetChild(6).gameObject.transform.position, collider.gameObject.transform.position))
                         {
-                            player.transform.GetChild(6).gameObject.SetActive(false);
+                            player.transform.GetChild(6).gameObject.transform.GetChild(1).GetComponent<Animator>().SetTrigger("Active");
                             player.transform.GetChild(4).gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, .13f);
                             player.transform.GetChild(4).gameObject.tag = "White";
                         }
                         else
                         {
-                            player.transform.GetChild(4).gameObject.SetActive(false);
+                            player.transform.GetChild(4).gameObject.transform.GetChild(1).GetComponent<Animator>().SetTrigger("Active");
                             player.transform.GetChild(6).gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, .13f);
                             player.transform.GetChild(6).gameObject.tag = "White";
                         }
@@ -144,13 +144,13 @@ public class PlayerCollision : MonoBehaviour
                     if (Vector3.Distance(player.transform.GetChild(6).gameObject.transform.position, collider.gameObject.transform.position)
                         > Vector3.Distance(player.transform.GetChild(5).gameObject.transform.position, collider.gameObject.transform.position))
                     {
-                        player.transform.GetChild(5).gameObject.SetActive(false);
+                        player.transform.GetChild(5).gameObject.transform.GetChild(1).GetComponent<Animator>().SetTrigger("Active");
                         player.transform.GetChild(6).gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, .13f);
                         player.transform.GetChild(6).gameObject.tag = "White";
                     }
                     else
                     {
-                        player.transform.GetChild(6).gameObject.SetActive(false);
+                        player.transform.GetChild(6).gameObject.transform.GetChild(1).GetComponent<Animator>().SetTrigger("Active");
                         player.transform.GetChild(5).gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, .13f);
                         player.transform.GetChild(5).gameObject.tag = "White";
                     }
@@ -163,18 +163,22 @@ public class PlayerCollision : MonoBehaviour
             {
                 if (player.transform.GetChild(4).gameObject.activeSelf)
                 {
-                    player.transform.GetChild(4).gameObject.SetActive(false);
-
+                    player.GetComponent<PlayerMovement>().movementSpeed = 0;
+                    player.GetComponent<PlayerMovement>().rotationSpeed = 0;
+                    player.transform.GetChild(4).gameObject.transform.GetChild(1).GetComponent<Animator>().SetTrigger("Active");
                 }
                 if (player.transform.GetChild(5).gameObject.activeSelf)
                 {
-                    player.transform.GetChild(5).gameObject.SetActive(false);
-
+                    player.GetComponent<PlayerMovement>().movementSpeed = 0;
+                    player.GetComponent<PlayerMovement>().rotationSpeed = 0;
+                    player.transform.GetChild(5).gameObject.transform.GetChild(1).GetComponent<Animator>().SetTrigger("Active");
                 }
+
                 if (player.transform.GetChild(6).gameObject.activeSelf)
                 {
-                    player.transform.GetChild(6).gameObject.SetActive(false);
-
+                    player.GetComponent<PlayerMovement>().movementSpeed = 0;
+                    player.GetComponent<PlayerMovement>().rotationSpeed = 0;
+                    player.transform.GetChild(6).gameObject.transform.GetChild(1).GetComponent<Animator>().SetTrigger("Active");
                 }
             }
         }
