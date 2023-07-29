@@ -14,6 +14,7 @@ public class PopAnimation : MonoBehaviour
     public void RemoveSprite()
     {
         parent = this.gameObject.transform.parent;
+        this.gameObject.GetComponent<SpriteRenderer>().enabled = true;
         parent.GetComponent<SpriteRenderer>().enabled = false;
         parent.GetChild(0).gameObject.GetComponent<SpriteRenderer>().enabled = false;
         this.gameObject.transform.parent = null;

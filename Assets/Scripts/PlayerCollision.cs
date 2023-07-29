@@ -36,6 +36,10 @@ public class PlayerCollision : MonoBehaviour
                 GameObject explosion = player.transform.GetChild(1).gameObject;
                 explosion.transform.parent = null;
 
+                player.transform.GetChild(4).gameObject.GetComponent<CircleCollider2D>().enabled = false;
+                player.transform.GetChild(5).gameObject.GetComponent<CircleCollider2D>().enabled = false;
+                player.transform.GetChild(6).gameObject.GetComponent<CircleCollider2D>().enabled = false;
+
 
                 if (gameObjectTag == "Yellow" || gameObjectTag == "Green")
                 {
@@ -77,9 +81,14 @@ public class PlayerCollision : MonoBehaviour
                 GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().SetState("Line");
 
 
+
             }
             else if (player.GetComponent<PlayerMovement>().GetState() == "Line")
             {
+                player.transform.GetChild(4).gameObject.GetComponent<CircleCollider2D>().enabled = false;
+                player.transform.GetChild(5).gameObject.GetComponent<CircleCollider2D>().enabled = false;
+                player.transform.GetChild(6).gameObject.GetComponent<CircleCollider2D>().enabled = false;
+
                 if (player.transform.GetChild(7).gameObject.activeSelf)
                 {
                     player.GetComponent<PlayerMovement>().movementSpeed = 0;
@@ -185,13 +194,10 @@ public class PlayerCollision : MonoBehaviour
       //  yield return new WaitForSeconds(0.0f);
     }
 
-    IEnumerator Reactivate()
-    {
-        yield return new WaitForSeconds(0.5f);
-        GameObject.FindWithTag("Player").GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+   // IEnumerator Reactivate()
+  //  {
 
-        GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().SetState("Line");
-    }
+   // }
 
 
 }
