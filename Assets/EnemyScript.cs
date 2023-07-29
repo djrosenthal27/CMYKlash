@@ -10,8 +10,20 @@ public class EnemyScript : MonoBehaviour
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
-        Color[] colors = {Color.white, Color.red, Color.black, Color.cyan};
+        Color[] colors = {Color.cyan, Color.yellow, Color.magenta, Color.cyan};
         sprite.color = colors[Random.Range(0,3)];
+        if (sprite.color == Color.cyan)
+        {
+            this.tag = "Cyan";
+        }
+        if (sprite.color == Color.yellow)
+        {
+            this.tag = "Yellow";
+        }
+        if (sprite.color == Color.magenta)
+        {
+            this.tag = "Magenta";
+        }
     }
 
     // Update is called once per frame

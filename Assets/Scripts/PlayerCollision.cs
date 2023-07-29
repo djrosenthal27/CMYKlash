@@ -24,8 +24,7 @@ public class PlayerCollision : MonoBehaviour
             || (colliderTag == "Magenta" && (gameObjectTag == "Magenta" || gameObjectTag == "Red" || gameObjectTag == "Blue"))
             || (colliderTag == "Cyan" && (gameObjectTag == "Cyan" || gameObjectTag == "Blue" || gameObjectTag == "Green")))
         {
-            collider.gameObject.SetActive(false);
-
+            Destroy(collider.gameObject, 0.0f);
         }
         else
         {
@@ -88,6 +87,14 @@ public class PlayerCollision : MonoBehaviour
                 player.transform.GetChild(4).gameObject.GetComponent<CircleCollider2D>().enabled = false;
                 player.transform.GetChild(5).gameObject.GetComponent<CircleCollider2D>().enabled = false;
                 player.transform.GetChild(6).gameObject.GetComponent<CircleCollider2D>().enabled = false;
+
+                player.transform.GetChild(7).gameObject.transform.GetChild(0).gameObject.SetActive(false);
+                player.transform.GetChild(7).gameObject.transform.GetChild(1).gameObject.SetActive(false);
+                player.transform.GetChild(8).gameObject.transform.GetChild(0).gameObject.SetActive(false);
+                player.transform.GetChild(8).gameObject.transform.GetChild(1).gameObject.SetActive(false);
+                player.transform.GetChild(9).gameObject.transform.GetChild(0).gameObject.SetActive(false);
+                player.transform.GetChild(9).gameObject.transform.GetChild(1).gameObject.SetActive(false);
+
 
                 if (player.transform.GetChild(7).gameObject.activeSelf)
                 {
