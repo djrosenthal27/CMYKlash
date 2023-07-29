@@ -16,8 +16,8 @@ public class StopMovement : MonoBehaviour
 
     public void Stop()
     {
-           player.GetComponent<PlayerMovement>().movementSpeed = 0;
-            player.GetComponent<PlayerMovement>().rotationSpeed = 0;
+        player.GetComponent<PlayerMovement>().movementSpeed = 0;
+        player.GetComponent<PlayerMovement>().rotationSpeed = 0;
        // player.GetComponent<PlayerMovement>().gameObject.SetActive(false);
         // GameObject.FindWithTag("Player").GetComponent<Rigidbody2D>().isKinematic = true;
     }

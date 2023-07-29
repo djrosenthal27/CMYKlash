@@ -883,6 +883,10 @@ PrefabInstance:
       value: Yellow Line Collider
       objectReference: {fileID: 0}
     - target: {fileID: 2747539497221678773, guid: a14b23ab9ac064a458b419521df7410c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2747539497221678773, guid: a14b23ab9ac064a458b419521df7410c, type: 3}
       propertyPath: m_TagString
       value: Yellow
       objectReference: {fileID: 0}
@@ -1059,6 +1063,8 @@ GameObject:
   m_Component:
   - component: {fileID: 533288267}
   - component: {fileID: 533288268}
+  - component: {fileID: 533288269}
+  - component: {fileID: 533288270}
   m_Layer: 0
   m_Name: CyYeLine
   m_TagString: Untagged
@@ -1074,7 +1080,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 533288266}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.08, y: -0.65, z: 0}
+  m_LocalPosition: {x: -0.08, y: -0.47, z: 0}
   m_LocalScale: {x: 1, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1135,6 +1141,39 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &533288269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 533288266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac5b5ac90f57ad24ab7aa6526cb1f33e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &533288270
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 533288266}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 720b3eb5ea10e9d4e9974e7f7759d563, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &591667177
 GameObject:
   m_ObjectHideFlags: 0
@@ -1269,6 +1308,10 @@ PrefabInstance:
     - target: {fileID: 2747539497221678773, guid: a14b23ab9ac064a458b419521df7410c, type: 3}
       propertyPath: m_Name
       value: Cyan Line Collider
+      objectReference: {fileID: 0}
+    - target: {fileID: 2747539497221678773, guid: a14b23ab9ac064a458b419521df7410c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2747539497221678773, guid: a14b23ab9ac064a458b419521df7410c, type: 3}
       propertyPath: m_TagString
@@ -2499,6 +2542,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1113179695}
   - component: {fileID: 1113179696}
+  - component: {fileID: 1113179697}
+  - component: {fileID: 1113179698}
   m_Layer: 0
   m_Name: YeMaLine
   m_TagString: Untagged
@@ -2514,7 +2559,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1113179694}
   m_LocalRotation: {x: -0, y: -0, z: 0.2588191, w: 0.9659258}
-  m_LocalPosition: {x: 0.24, y: 0.22, z: 0}
+  m_LocalPosition: {x: 0.42, y: 0.28, z: 0}
   m_LocalScale: {x: 1, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2575,6 +2620,39 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1113179697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1113179694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac5b5ac90f57ad24ab7aa6526cb1f33e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &1113179698
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1113179694}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 720b3eb5ea10e9d4e9974e7f7759d563, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1156809177
 GameObject:
   m_ObjectHideFlags: 0
@@ -2686,6 +2764,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1224366837}
   - component: {fileID: 1224366838}
+  - component: {fileID: 1224366839}
+  - component: {fileID: 1224366840}
   m_Layer: 0
   m_Name: MaCyLine
   m_TagString: Untagged
@@ -2701,7 +2781,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1224366836}
   m_LocalRotation: {x: -0, y: -0, z: 0.9659258, w: 0.2588191}
-  m_LocalPosition: {x: -0.28, y: 0.09, z: 0}
+  m_LocalPosition: {x: -0.45, y: 0.2, z: 0}
   m_LocalScale: {x: 1, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2762,6 +2842,39 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1224366839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224366836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac5b5ac90f57ad24ab7aa6526cb1f33e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &1224366840
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224366836}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 720b3eb5ea10e9d4e9974e7f7759d563, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1265634970
 GameObject:
   m_ObjectHideFlags: 0

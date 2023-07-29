@@ -32,7 +32,7 @@ public class PlayerCollision : MonoBehaviour
             if (GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().GetState() == "Triangle")
             {
                 player.transform.GetChild(0).gameObject.SetActive(false);
-              //  player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;       
+                //  player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;       
                 GameObject explosion = player.transform.GetChild(1).gameObject;
                 explosion.transform.parent = null;
 
@@ -48,6 +48,9 @@ public class PlayerCollision : MonoBehaviour
                 {
                     player.transform.GetChild(4).gameObject.SetActive(false);
                     player.transform.GetChild(8).gameObject.SetActive(true);
+                    // player.transform.GetChild(8).gameObject.GetComponent<SpriteRenderer>().enabled = true;
+                    // player.transform.GetChild(8).gameObject.transform.GetChild(0).gameObject.SetActive(true);
+                    // player.transform.GetChild(8).gameObject.transform.GetChild(1).gameObject.SetActive(true);
                     player.transform.GetChild(5).gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 255, 0, .13f);
                     player.transform.GetChild(5).gameObject.tag = "Green";
                 }
@@ -79,17 +82,25 @@ public class PlayerCollision : MonoBehaviour
             {
                 if (player.transform.GetChild(7).gameObject.activeSelf)
                 {
-                    player.transform.GetChild(7).gameObject.GetComponent<ZapOut>();//.Zap();
+                    player.GetComponent<PlayerMovement>().movementSpeed = 0;
+                    player.GetComponent<PlayerMovement>().rotationSpeed = 0;
+                    player.transform.GetChild(7).gameObject.GetComponent<Animator>().SetTrigger("Active");
+                    //        player.transform.GetChild(7).gameObject.GetComponent<ZapOut>().Zap();
                     //player.transform.GetChild(7).gameObject.SetActive(false);
                 }
-                if (player.transform.GetChild(8).gameObject.activeSelf)
+                else if (player.transform.GetChild(8).gameObject.activeSelf)
                 {
-                    player.transform.GetChild(8).gameObject.GetComponent<ZapOut>();//.Zap();
+                    player.GetComponent<PlayerMovement>().movementSpeed = 0;
+                    player.GetComponent<PlayerMovement>().rotationSpeed = 0;
+                    player.transform.GetChild(8).gameObject.GetComponent<Animator>().SetTrigger("Active");
                     // player.transform.GetChild(8).gameObject.SetActive(false);
                 }
-                if (player.transform.GetChild(9).gameObject.activeSelf)
+                else if (player.transform.GetChild(9).gameObject.activeSelf)
                 {
-                    player.transform.GetChild(9).gameObject.GetComponent<ZapOut>();//.Zap();
+                    player.GetComponent<PlayerMovement>().movementSpeed = 0;
+                    player.GetComponent<PlayerMovement>().rotationSpeed = 0;
+                    player.transform.GetChild(9).gameObject.GetComponent<Animator>().SetTrigger("Active");
+                    //    player.transform.GetChild(9).gameObject.GetComponent<ZapOut>().Zap();
                     //player.transform.GetChild(9).gameObject.SetActive(false);
                 }
 
@@ -102,11 +113,13 @@ public class PlayerCollision : MonoBehaviour
                         {
                             player.transform.GetChild(5).gameObject.SetActive(false);
                             player.transform.GetChild(4).gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, .13f);
+                            player.transform.GetChild(4).gameObject.tag = "White";
                         }
                         else
                         {
                             player.transform.GetChild(4).gameObject.SetActive(false);
                             player.transform.GetChild(5).gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, .13f);
+                            player.transform.GetChild(5).gameObject.tag = "White";
                         }
                     }
                     else
@@ -116,11 +129,13 @@ public class PlayerCollision : MonoBehaviour
                         {
                             player.transform.GetChild(6).gameObject.SetActive(false);
                             player.transform.GetChild(4).gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, .13f);
+                            player.transform.GetChild(4).gameObject.tag = "White";
                         }
                         else
                         {
                             player.transform.GetChild(4).gameObject.SetActive(false);
                             player.transform.GetChild(6).gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, .13f);
+                            player.transform.GetChild(6).gameObject.tag = "White";
                         }
                     }
                 }
@@ -131,15 +146,36 @@ public class PlayerCollision : MonoBehaviour
                     {
                         player.transform.GetChild(5).gameObject.SetActive(false);
                         player.transform.GetChild(6).gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, .13f);
+                        player.transform.GetChild(6).gameObject.tag = "White";
                     }
                     else
                     {
                         player.transform.GetChild(6).gameObject.SetActive(false);
                         player.transform.GetChild(5).gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, .13f);
+                        player.transform.GetChild(5).gameObject.tag = "White";
                     }
                 }
-            //    yield return new WaitForSeconds(0.0f);
+                //    yield return new WaitForSeconds(0.0f);
 
+                GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().SetState("Dot");
+            }
+            else if (player.GetComponent<PlayerMovement>().GetState() == "Dot")
+            {
+                if (player.transform.GetChild(4).gameObject.activeSelf)
+                {
+                    player.transform.GetChild(4).gameObject.SetActive(false);
+
+                }
+                if (player.transform.GetChild(5).gameObject.activeSelf)
+                {
+                    player.transform.GetChild(5).gameObject.SetActive(false);
+
+                }
+                if (player.transform.GetChild(6).gameObject.activeSelf)
+                {
+                    player.transform.GetChild(6).gameObject.SetActive(false);
+
+                }
             }
         }
       //  yield return new WaitForSeconds(0.0f);
