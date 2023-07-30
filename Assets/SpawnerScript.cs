@@ -6,29 +6,57 @@ public class SpawnerScript : MonoBehaviour
 {
 
     public GameObject Enemy;
+    public GameObject Homing;
     public float spawnRate = 2;
     public float timer = 0;
-    public Transform box;
     // Start is called before the first frame update
     void Start()
     {
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        int x, y;
         if (timer < spawnRate)
         {
             timer = timer + Time.deltaTime;
         }
         else
         {
-            int height = Random.Range(-4, 4);
-            Instantiate(Enemy, new Vector3(transform.position.x, height, transform.position.z), transform.rotation, box);
-            if (box.GetComponent<SlowedDown>().slowedDown)
+            if (Random.Range(0, 2) == 0)
             {
-                box.GetChild(box.childCount - 1).GetComponent<EnemyScript>().moveSpeed = box.GetChild(box.childCount - 1).GetComponent<EnemyScript>().moveSpeed / 2.0f;
+                if (Random.Range(0, 2) == 0)
+                {
+                    y = Random.Range(-4, 4);
+                    x = 10;
+                }
+                else
+                {
+                    y = Random.Range(-4, 4);
+                    x = -10;
+                }
             }
+            else
+            {
+                if (Random.Range(0, 2) == 0)
+                {
+                    x = Random.Range(-9, 9);
+                    y = 6;
+                }
+                else
+                {
+                    x = Random.Range(-4, 4);
+                    y = -6;
+                }
+            }
+            if (Random.Range(0, 2) == 0)
+            {
+                Instantiate(Homing, new Vector3(x, y, transform.position.z), transform.rotation);
+            }
+            else
+                Instantiate(Enemy, new Vector3(x, y, transform.position.z), transform.rotation);
             timer = 0;
         }
     }
