@@ -72,12 +72,14 @@ public class PowerUpRecover : PowerUpCode
             {
                 if (timer < powerSpinDuration)
                 {
+                    GameObject.FindWithTag("Board").transform.GetChild(2).gameObject.GetComponent<DisplayPowerup>().Display("Invincibility: " + (int)(powerSpinDuration - timer));
                     timer = timer + Time.deltaTime;
                 }
                 else
                 {
                     GameObject.FindWithTag("Player").transform.GetChild(0).gameObject.SetActive(true);
                     GameObject.FindWithTag("Player").transform.GetChild(11).gameObject.SetActive(false);
+                    GameObject.FindWithTag("Board").transform.GetChild(2).gameObject.GetComponent<DisplayPowerup>().Display("");
                     shouldUpdate = false;
                     Destroy(gameObject, 0.0f);
                 }
@@ -86,12 +88,13 @@ public class PowerUpRecover : PowerUpCode
             {
                 if (timer < duration)
                 {
-                    Debug.Log(timer);
+                    GameObject.FindWithTag("Board").transform.GetChild(2).gameObject.GetComponent<DisplayPowerup>().Display("Recover");
                     timer = timer + Time.deltaTime;
                 }
                 else
                 {
                     this.gameObject.GetComponent<TempRegenInvincibility>().Reactivate();
+                    GameObject.FindWithTag("Board").transform.GetChild(2).gameObject.GetComponent<DisplayPowerup>().Display("");
                     shouldUpdate = false;
                     Destroy(gameObject, 0.0f);
                 }

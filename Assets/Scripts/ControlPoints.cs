@@ -11,6 +11,7 @@ public class ControlPoints : MonoBehaviour
         {
             transform.GetChild(1).gameObject.GetComponent<UpdateMultiplier>().IncreaseKill();
         }
-        Destroy(gameObject, 0.0f);
+        gameObject.GetComponent<Animator>().SetTrigger("Active");
+       // Destroy(gameObject, 0.0f);
     }
 }

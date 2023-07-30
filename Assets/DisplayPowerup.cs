@@ -1,18 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class DisplayPowerup : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public TMP_Text powerupText;
+    bool powerupActivated;
 
-    // Update is called once per frame
-    void Update()
+    public void Display(string display)
     {
-        
+        //score = score + updateMultiplier.multiplier;
+        this.gameObject.GetComponent<TextMeshProUGUI>().text = display;
     }
 }
