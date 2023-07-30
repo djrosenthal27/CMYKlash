@@ -8,12 +8,19 @@ public class PowerUpRecover : PowerUpCode
     public GameObject YeMaPlayer;
     public GameObject CyYePlayer;
     public GameObject MaCyPlayer;
+    public float powerSpinDuration;
+    bool shouldPowerSpin;
+
     public override void Activate()
     {
+        shouldPowerSpin = false;
         Debug.Log("Regen");
         if (GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().GetState() == "Triangle")
         {
-
+            GameObject.FindWithTag("Player").transform.GetChild(0).gameObject.SetActive(false);
+            GameObject.FindWithTag("Player").transform.GetChild(11).gameObject.SetActive(true);
+            GameObject.FindWithTag("Player").transform.GetChild(11).gameObject.GetComponent<Animator>().SetTrigger("Active");
+            shouldPowerSpin = true;
         }
         else if (GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().GetState() == "Line")
         {
@@ -57,15 +64,31 @@ public class PowerUpRecover : PowerUpCode
     {
         if (shouldUpdate)
         {
-
-            if (timer < duration)
+            if (shouldPowerSpin)
             {
-                timer = timer + Time.deltaTime;
-            }
+                if (timer < powerSpinDuration)
+                {
+                    timer = timer + Time.deltaTime;
+                }
+                else
+                {
+                    GameObject.FindWithTag("Player").transform.GetChild(0).gameObject.SetActive(true);
+                    GameObject.FindWithTag("Player").transform.GetChild(11).gameObject.SetActive(false);
+                    shouldUpdate = false;
+                    Destroy(gameObject, 0.0f);
+                }
+            } 
             else
             {
-                shouldUpdate = false;
-                Destroy(gameObject, 0.0f);
+                if (timer < duration)
+                {
+                    timer = timer + Time.deltaTime;
+                }
+                else
+                {
+                    shouldUpdate = false;
+                    Destroy(gameObject, 0.0f);
+                }
             }
 
         }

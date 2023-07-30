@@ -31,7 +31,7 @@ public class PlayerCollision : MonoBehaviour
         if (!collider.gameObject.GetComponent<Collidable>().collided)
         {
             collider.gameObject.GetComponent<Collidable>().collided = true;
-           // Debug.Log("Enemy:" + colliderTag + " Player:" + gameObjectTag);
+            Debug.Log("Enemy:" + colliderTag + " Player:" + gameObjectTag);
             if ((colliderTag == "Yellow" && (gameObjectTag == "Yellow" || gameObjectTag == "Red" || gameObjectTag == "Green"))
                 || (colliderTag == "Magenta" && (gameObjectTag == "Magenta" || gameObjectTag == "Red" || gameObjectTag == "Blue"))
                 || (colliderTag == "Cyan" && (gameObjectTag == "Cyan" || gameObjectTag == "Blue" || gameObjectTag == "Green")))

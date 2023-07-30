@@ -8,6 +8,7 @@ public class PowerUpSlow : PowerUpCode
     public override void Activate()
     {
         Debug.Log("it's slow time!");
+        this.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().enabled = false;
         enemyBox = GameObject.FindWithTag("EnemyBox").transform;
         for (int x = 0; x < enemyBox.childCount; x++) {
             enemyBox.GetChild(x).gameObject.GetComponent<EnemyScript>().moveSpeed = enemyBox.GetChild(x).gameObject.GetComponent<EnemyScript>().moveSpeed / 2.0f;

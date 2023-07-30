@@ -8,6 +8,7 @@ public class PowerUpDestroy : PowerUpCode
     public override void Activate()
     {
         Debug.Log("Kaboom!");
+        this.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().enabled = false;
         enemyBox = GameObject.FindWithTag("EnemyBox").transform;
         for (int x = 0; x < enemyBox.childCount; x++)
         {

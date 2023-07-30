@@ -10,6 +10,7 @@ public class PowerUpSpeedUp : PowerUpCode
     public override void Activate()
     {
         Debug.Log("Speed");
+        this.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().enabled = false;
         originalSpeed = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().movementSpeed;
         originalRotation = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().rotationSpeed;
         GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().movementSpeed = originalSpeed * 2.0f;
