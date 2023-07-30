@@ -20,7 +20,7 @@ public class HomingScript : AbstractEnemyScript
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
-        Color[] colors = { Color.cyan, Color.yellow, Color.magenta, Color.cyan };
+        Color[] colors = { Color.cyan, Color.yellow, Color.magenta };
         sprite.color = colors[Random.Range(0, 3)];
         if (sprite.color == Color.cyan)
         {
