@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 395758883973394135}
   - component: {fileID: 395758883973394134}
   - component: {fileID: 395758883973394133}
-  - component: {fileID: 395758883973394132}
-  - component: {fileID: 2274923406378459835}
+  - component: {fileID: 2048908980462905767}
+  - component: {fileID: -8882395036251673963}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Homing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -92,7 +92,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: 4a9f5346bee85114bb37d64e936aa7b3, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 31ba0feb5c8b7da4e9c12161795edd2f, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -103,7 +103,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &395758883973394132
+--- !u!114 &2048908980462905767
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,20 +112,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 395758883973394130}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05c95a1cddf4d8848bbea8ee120f2514, type: 3}
+  m_Script: {fileID: 11500000, guid: 93c6dc50b0b6fd548857d3b6c691ab1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  target: {fileID: 5300218219950773571, guid: 9196f171ce7d3464da84c7cd1c4a53e9, type: 3}
+  rigidBody: {fileID: -8882395036251673963}
   sprite: {fileID: 0}
-MonoBehaviour:
+  angleChangingSpeed: 2
+  movementSpeed: 2
+--- !u!50 &-8882395036251673963
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 395758883973394130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ef97b7b6cf1f254a9c4f8135df56236, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collided: 0
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

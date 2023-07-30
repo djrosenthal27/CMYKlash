@@ -294,6 +294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: {fileID: 395758883973394130, guid: 4119d4232580aeb4b80d85e2299976b0, type: 3}
+  Homing: {fileID: 395758883973394130, guid: a68ebd1f7e183844799dbe357dd40fdd, type: 3}
   spawnRate: 2
   timer: 0
 --- !u!4 &1935245689
