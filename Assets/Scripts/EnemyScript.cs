@@ -70,7 +70,7 @@ public class EnemyScript : AbstractEnemyScript
         if (dir == 3)
             transform.position = transform.position + (Vector3.up * moveSpeed * Time.deltaTime);
 
-        if (transform.position.x < -18 || transform.position.y < -18)
+        if (transform.position.x < -14 || transform.position.y < -10 || transform.position.x > 14 || transform.position.y > 10)
         {
             Destroy(gameObject);
         }
