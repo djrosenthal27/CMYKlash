@@ -24,19 +24,19 @@ public class SetBoundaries : MonoBehaviour
 
         float height = topRight.y - bottomLeft.y;
 
-        left.transform.localScale = new Vector3(0.5f, height - .5f, 1f);
-        right.transform.localScale = new Vector3(0.5f, height - .5f, 1f);
+        left.transform.localScale = new Vector3(1f, height, 1f);
+        right.transform.localScale = new Vector3(1f, height, 1f);
 
-        left.transform.localPosition = new Vector3(bottomLeft.x + .5f, 0f, 0f);
-        right.transform.localPosition = new Vector3(topRight.x - .5f, 0f, 0f);
+        left.transform.localPosition = new Vector3(bottomLeft.x, 0f, 0f);
+        right.transform.localPosition = new Vector3(topRight.x, 0f, 0f);
 
         float width = topRight.x - bottomLeft.x;
 
-        top.transform.localScale = new Vector3(width - .5f, 0.5f, 1f);
-        bottom.transform.localScale = new Vector3(width - .5f, 0.5f, 1f);
+        top.transform.localScale = new Vector3(width, 1f, 1f);
+        bottom.transform.localScale = new Vector3(width, 1f, 1f);
 
-        top.transform.localPosition = new Vector3(0f, topRight.y - .5f, 0f);
-        bottom.transform.localPosition = new Vector3(0f, bottomLeft.y + .5f, 0f);
+        top.transform.localPosition = new Vector3(0f, topRight.y, 0f);
+        bottom.transform.localPosition = new Vector3(0f, bottomLeft.y, 0f);
 
         top.AddComponent<BoxCollider2D>();
         bottom.AddComponent<BoxCollider2D>();
