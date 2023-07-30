@@ -27,7 +27,8 @@ public class PowerUpRecover : PowerUpCode
             Vector3 pos = GameObject.FindWithTag("Player").transform.position;
             Quaternion rotation = GameObject.FindWithTag("Player").transform.rotation;
             Destroy(GameObject.FindWithTag("Player"), 0.0f);
-            Instantiate(Player, pos, rotation);
+            //Instantiate(Player, pos, rotation);
+            this.gameObject.GetComponent<TempRegenInvincibility>().Restart(Instantiate(Player, pos, rotation));
         }
         else if (GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().GetState() == "Dot")
         {
@@ -36,14 +37,16 @@ public class PowerUpRecover : PowerUpCode
                 Vector3 pos = GameObject.FindWithTag("Player").transform.position;
                 Quaternion rotation = GameObject.FindWithTag("Player").transform.rotation;
                 Destroy(GameObject.FindWithTag("Player"), 0.0f);
-                Instantiate(YeMaPlayer, pos, rotation);
+              //  Instantiate(YeMaPlayer, pos, rotation);
+                this.gameObject.GetComponent<TempRegenInvincibility>().Restart(Instantiate(YeMaPlayer, pos, rotation));
             }
             else if (GameObject.FindWithTag("Player").transform.GetChild(5).gameObject.activeSelf)
             {
                 Vector3 pos = GameObject.FindWithTag("Player").transform.position;
                 Quaternion rotation = GameObject.FindWithTag("Player").transform.rotation;
                 Destroy(GameObject.FindWithTag("Player"), 0.0f);
-                Instantiate(MaCyPlayer, pos, rotation);
+              //  Instantiate(MaCyPlayer, pos, rotation);
+                this.gameObject.GetComponent<TempRegenInvincibility>().Restart(Instantiate(MaCyPlayer, pos, rotation));
             }
 
             else if (GameObject.FindWithTag("Player").transform.GetChild(6).gameObject.activeSelf)
@@ -51,7 +54,8 @@ public class PowerUpRecover : PowerUpCode
                 Vector3 pos = GameObject.FindWithTag("Player").transform.position;
                 Quaternion rotation = GameObject.FindWithTag("Player").transform.rotation;
                 Destroy(GameObject.FindWithTag("Player"), 0.0f);
-                Instantiate(CyYePlayer, pos, rotation);
+               // Instantiate(CyYePlayer, pos, rotation);
+                this.gameObject.GetComponent<TempRegenInvincibility>().Restart(Instantiate(CyYePlayer, pos, rotation));
             }
 
             GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().SetState("Line");
@@ -82,10 +86,12 @@ public class PowerUpRecover : PowerUpCode
             {
                 if (timer < duration)
                 {
+                    Debug.Log(timer);
                     timer = timer + Time.deltaTime;
                 }
                 else
                 {
+                    this.gameObject.GetComponent<TempRegenInvincibility>().Reactivate();
                     shouldUpdate = false;
                     Destroy(gameObject, 0.0f);
                 }

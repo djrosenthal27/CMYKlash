@@ -8,6 +8,6 @@ public class PowerSpin : MonoBehaviour
     {
         collider.gameObject.GetComponent<Collidable>().collided = true;
         collider.gameObject.GetComponent<Collider2D>().enabled = false;
-        Destroy(collider.gameObject, 0.0f);
+        GameObject.FindWithTag("Board").GetComponent<ControlPoints>().DefeatEnemy(collider.gameObject);
     }
 }
