@@ -234,7 +234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shouldUpdate: 0
   timer: 0
-  duration: 5
+  duration: 6
 --- !u!114 &3966388244515388044
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2203091903160905630}
   - component: {fileID: 8654308536478842155}
   - component: {fileID: 7262948646702691144}
-  - component: {fileID: 1625877867533056594}
+  - component: {fileID: 6822285302248528833}
   m_Layer: 0
   m_Name: TetraSpin
   m_TagString: Untagged
@@ -121,8 +121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 604c4f7a67881714194aa34a3ba076ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!60 &1625877867533056594
-PolygonCollider2D:
+--- !u!58 &6822285302248528833
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -134,36 +134,9 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10.8, y: 10.8}
-    newSize: {x: 10.8, y: 10.8}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -2.7570477, y: -1.593636}
-      - {x: -2.1637158, y: -1.4918649}
-      - {x: -1.9268614, y: -1.1064632}
-      - {x: 1.9304379, y: -1.0610774}
-      - {x: 2.218559, y: -1.5081774}
-      - {x: 3.00306, y: -1.4387283}
-      - {x: 3.2458968, y: -0.70288295}
-      - {x: 2.7456794, y: -0.2257626}
-      - {x: 2.342028, y: -0.27675277}
-      - {x: 0.46934935, y: 2.9684098}
-      - {x: 0.69164866, y: 3.5024867}
-      - {x: 0.40134767, y: 3.9795012}
-      - {x: -0.3248085, y: 3.9949317}
-      - {x: -0.5722846, y: 3.46175}
-      - {x: -0.38221085, y: 2.9669888}
-      - {x: -2.2904055, y: -0.39224666}
-      - {x: -2.877336, y: -0.38744068}
-      - {x: -3.1932275, y: -1.0664793}
+  m_Offset: {x: 0, y: 1}
+  serializedVersion: 2
+  m_Radius: 4
 --- !u!1 &545750433177903285
 GameObject:
   m_ObjectHideFlags: 0

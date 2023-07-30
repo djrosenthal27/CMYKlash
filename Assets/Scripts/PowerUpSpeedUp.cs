@@ -9,7 +9,6 @@ public class PowerUpSpeedUp : PowerUpCode
 
     public override void Activate()
     {
-        Debug.Log("Speed");
         this.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().enabled = false;
         originalSpeed = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().movementSpeed;
         originalRotation = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().rotationSpeed;
@@ -24,6 +23,7 @@ public class PowerUpSpeedUp : PowerUpCode
 
             if (timer < duration)
             {
+                GameObject.FindWithTag("Board").transform.GetChild(2).gameObject.GetComponent<DisplayPowerup>().Display("Speed Up: " +  (int)(duration - timer));
                 timer = timer + Time.deltaTime;
             }
             else
@@ -31,6 +31,7 @@ public class PowerUpSpeedUp : PowerUpCode
                 GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().movementSpeed = originalSpeed;
                 GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().rotationSpeed = originalRotation;
                 shouldUpdate = false;
+                GameObject.FindWithTag("Board").transform.GetChild(2).gameObject.GetComponent<DisplayPowerup>().Display("");
                 Destroy(gameObject, 0.0f);
             }
 

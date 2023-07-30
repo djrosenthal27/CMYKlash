@@ -22,6 +22,11 @@ public abstract class PowerUpCode : MonoBehaviour
         Activate();
     }
 
+    public void Display()
+    {
+
+    }
+
     abstract public void Activate();
 
     abstract public void Update();
