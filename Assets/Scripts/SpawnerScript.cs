@@ -12,7 +12,7 @@ public class SpawnerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+    
     }
 
     // Update is called once per frame
@@ -51,7 +51,8 @@ public class SpawnerScript : MonoBehaviour
                     y = -6;
                 }
             }
-            if (Random.Range(0,2) == 0){
+            if (Random.Range(0, 2) == 0)
+            {
                 Instantiate(Homing, new Vector3(x, y, transform.position.z), transform.rotation);
             }
             else

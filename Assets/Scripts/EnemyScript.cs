@@ -11,8 +11,8 @@ public class EnemyScript : MonoBehaviour
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
-        Color[] colors = {Color.cyan, Color.yellow, Color.magenta, Color.cyan};
-        sprite.color = colors[Random.Range(0,3)];
+        Color[] colors = { Color.cyan, Color.yellow, Color.magenta, Color.cyan };
+        sprite.color = colors[Random.Range(0, 3)];
         if (sprite.color == Color.cyan)
         {
             this.tag = "Cyan";

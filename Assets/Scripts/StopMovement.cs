@@ -10,6 +10,7 @@ public class StopMovement : MonoBehaviour
 
     void Start()
     {
+       // player = GameObject.FindWithTag("Player");
         movementSpeed = player.GetComponent<PlayerMovement>().movementSpeed;
         rotationSpeed = player.GetComponent<PlayerMovement>().rotationSpeed;
     }
@@ -18,10 +19,6 @@ public class StopMovement : MonoBehaviour
     {
         player.GetComponent<PlayerMovement>().movementSpeed = 0;
         player.GetComponent<PlayerMovement>().rotationSpeed = 0;
-
-
-
-
 
         //player.transform.GetChild(4).gameObject.transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 0);
         //player.transform.GetChild(5).gameObject.transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 0);

@@ -11,6 +11,9 @@ TagManager:
   - Blue
   - Green
   - White
+  - Powerup
+  - EnemyBox
+  - Board
   layers:
   - Default
   - TransparentFX
@@ -47,4 +50,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Wall
+    uniqueID: 3010534567
+    locked: 0
+  - name: UI
+    uniqueID: 3069698721
     locked: 0
