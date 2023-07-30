@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor.Animations;
 
 public class HomingScript : AbstractEnemyScript
 {
@@ -9,6 +10,12 @@ public class HomingScript : AbstractEnemyScript
     public SpriteRenderer sprite;
    // public float moveSpeed = 5f;
     public float rotateSpeed = 200f;
+    public Sprite cyanSquare;
+    public AnimatorController cyanFizz;
+    public Sprite yellowSquare;
+    public AnimatorController yellowFizz;
+    public Sprite magentaSquare;
+    public AnimatorController magentaFizz;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,14 +25,20 @@ public class HomingScript : AbstractEnemyScript
         if (sprite.color == Color.cyan)
         {
             this.tag = "Cyan";
+            sprite.sprite = cyanSquare;
+            GetComponent<Animator>().runtimeAnimatorController = cyanFizz;
         }
         if (sprite.color == Color.yellow)
         {
             this.tag = "Yellow";
+            sprite.sprite = yellowSquare;
+            GetComponent<Animator>().runtimeAnimatorController = yellowFizz;
         }
         if (sprite.color == Color.magenta)
         {
             this.tag = "Magenta";
+            sprite.sprite = magentaSquare;
+            GetComponent<Animator>().runtimeAnimatorController = magentaFizz;
         }
         rb = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -44,5 +57,10 @@ public class HomingScript : AbstractEnemyScript
         rb.angularVelocity = -rotateAmount * rotateSpeed;
 
         rb.velocity = transform.up * moveSpeed;
+    }
+
+    public void DestroySelf()
+    {
+        Destroy(this.gameObject, 0.0f);
     }
 }
