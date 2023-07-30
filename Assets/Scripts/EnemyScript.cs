@@ -1,12 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor.Animations;
 
 public class EnemyScript : AbstractEnemyScript
 {
    // public float moveSpeed = 2;
     public SpriteRenderer sprite;
     public int dir = 0;
+    public Sprite cyanCircle;
+    public AnimatorController cyanPop;
+    public Sprite yellowCircle;
+    public AnimatorController yellowPop;
+    public Sprite magentaCircle;
+    public AnimatorController magentaPop;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,14 +23,20 @@ public class EnemyScript : AbstractEnemyScript
         if (sprite.color == Color.cyan)
         {
             this.tag = "Cyan";
+            sprite.sprite = cyanCircle;
+            GetComponent<Animator>().runtimeAnimatorController = cyanPop;
         }
         if (sprite.color == Color.yellow)
         {
             this.tag = "Yellow";
+            sprite.sprite = yellowCircle;
+            GetComponent<Animator>().runtimeAnimatorController = yellowPop;
         }
         if (sprite.color == Color.magenta)
         {
             this.tag = "Magenta";
+            sprite.sprite = magentaCircle;
+            GetComponent<Animator>().runtimeAnimatorController = magentaPop;
         }
         switch (transform.position.x)
         {
@@ -61,5 +74,10 @@ public class EnemyScript : AbstractEnemyScript
         {
             Destroy(gameObject);
         }
+    }
+
+    public void DestroySelf()
+    {
+        Destroy(this.gameObject, 0.0f);
     }
 }

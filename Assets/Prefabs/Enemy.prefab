@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 395758883973394133}
   - component: {fileID: 395758883973394132}
   - component: {fileID: -6867546317943504851}
+  - component: {fileID: -3381518430201384360}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -118,6 +119,12 @@ MonoBehaviour:
   moveSpeed: 2
   sprite: {fileID: 0}
   dir: 0
+  cyanCircle: {fileID: 21300000, guid: 652f38f5d1bbe5f4da1525863bbfc506, type: 3}
+  cyanPop: {fileID: 9100000, guid: ee1378f88461a544f8b2b74e37a71ae6, type: 2}
+  yellowCircle: {fileID: 21300000, guid: eb9822d1d2a813a48bc53a01beb927a7, type: 3}
+  yellowPop: {fileID: 9100000, guid: f3735125a303f614eadaac4be41c5931, type: 2}
+  magentaCircle: {fileID: 21300000, guid: e88c930a1e4847a44b2a80c07670fbfb, type: 3}
+  magentaPop: {fileID: 9100000, guid: 994b2fb387e907f4b85918cd4c2baa32, type: 2}
 --- !u!114 &-6867546317943504851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,3 +138,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collided: 0
+--- !u!95 &-3381518430201384360
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395758883973394130}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
