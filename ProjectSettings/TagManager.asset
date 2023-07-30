@@ -11,6 +11,8 @@ TagManager:
   - Blue
   - Green
   - White
+  - Powerup
+  - EnemyBox
   layers:
   - Default
   - TransparentFX

@@ -6,20 +6,24 @@ public class PlayerMovement : MonoBehaviour
 {
     public float movementSpeed;
     public float rotationSpeed;
+    public string state;
+    float initMoveSpeed;
+    float initRotationSpeed;
     Rigidbody2D rb;
     int xMove;
     int yMove;
     int rotation;
-    string state;
 
     // Start is called before the first frame update
     void Start()
     {
+        initMoveSpeed = movementSpeed;
+        initRotationSpeed = rotationSpeed;
         rb = GetComponent<Rigidbody2D>();
         xMove = 0;
         yMove = 0;
         rotation = 0;
-        state = "Triangle";
+        //state = "Triangle";
     }
 
     // Update is called once per frame
@@ -73,5 +77,15 @@ public class PlayerMovement : MonoBehaviour
     public string GetState()
     {
         return state;
+    }
+
+    public float GetInitMoveSpeed()
+    {
+        return initMoveSpeed;
+    }
+
+    public float GetInitRotationSpeed()
+    {
+        return initRotationSpeed;
     }
 }
