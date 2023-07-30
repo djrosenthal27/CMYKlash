@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 395758883973394133}
   - component: {fileID: 2048908980462905767}
   - component: {fileID: -8882395036251673963}
+  - component: {fileID: 3793633442869766827}
   m_Layer: 0
   m_Name: Homing
   m_TagString: Untagged
@@ -115,11 +116,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93c6dc50b0b6fd548857d3b6c691ab1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 1
   target: {fileID: 5300218219950773571, guid: 9196f171ce7d3464da84c7cd1c4a53e9, type: 3}
-  rigidBody: {fileID: -8882395036251673963}
+  rb: {fileID: 0}
   sprite: {fileID: 0}
-  angleChangingSpeed: 2
-  movementSpeed: 2
+  rotateSpeed: 200
 --- !u!50 &-8882395036251673963
 Rigidbody2D:
   serializedVersion: 4
@@ -141,3 +142,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &3793633442869766827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395758883973394130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ef97b7b6cf1f254a9c4f8135df56236, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collided: 0

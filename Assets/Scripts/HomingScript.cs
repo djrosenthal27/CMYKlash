@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HomingScript : MonoBehaviour
+public class HomingScript : AbstractEnemyScript
 {
     public Transform target;
     public Rigidbody2D rb;
     public SpriteRenderer sprite;
-    public float speed = 5f;
+   // public float moveSpeed = 5f;
     public float rotateSpeed = 200f;
     // Start is called before the first frame update
     void Start()
@@ -34,6 +34,7 @@ public class HomingScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         Vector2 direction = (Vector2)target.position - rb.position;
 
         direction.Normalize();
@@ -42,6 +43,6 @@ public class HomingScript : MonoBehaviour
 
         rb.angularVelocity = -rotateAmount * rotateSpeed;
 
-        rb.velocity = transform.up * speed;
+        rb.velocity = transform.up * moveSpeed;
     }
 }

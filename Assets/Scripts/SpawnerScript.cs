@@ -9,6 +9,7 @@ public class SpawnerScript : MonoBehaviour
     public GameObject Homing;
     public float spawnRate = 2;
     public float timer = 0;
+    public Transform box;
     // Start is called before the first frame update
     void Start()
     {
@@ -53,10 +54,16 @@ public class SpawnerScript : MonoBehaviour
             }
             if (Random.Range(0, 2) == 0)
             {
-                Instantiate(Homing, new Vector3(x, y, transform.position.z), transform.rotation);
+                Instantiate(Homing, new Vector3(x, y, transform.position.z), transform.rotation, box);
             }
             else
-                Instantiate(Enemy, new Vector3(x, y, transform.position.z), transform.rotation);
+            {
+                Instantiate(Enemy, new Vector3(x, y, transform.position.z), transform.rotation, box);
+            }
+            if (box.GetComponent<SlowedDown>().slowedDown)
+            {
+                box.GetChild(box.childCount - 1).GetComponent<AbstractEnemyScript>().moveSpeed = box.GetChild(box.childCount - 1).GetComponent<AbstractEnemyScript>().moveSpeed / 2.0f;
+            }
             timer = 0;
         }
     }

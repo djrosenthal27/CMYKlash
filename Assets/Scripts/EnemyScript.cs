@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyScript : MonoBehaviour
+public class EnemyScript : AbstractEnemyScript
 {
-    public float moveSpeed = 2;
+   // public float moveSpeed = 2;
     public SpriteRenderer sprite;
     public int dir = 0;
     // Start is called before the first frame update
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
-        Color[] colors = { Color.cyan, Color.yellow, Color.magenta, Color.cyan };
+        Color[] colors = {Color.cyan, Color.yellow, Color.magenta};
         sprite.color = colors[Random.Range(0, 3)];
         if (sprite.color == Color.cyan)
         {

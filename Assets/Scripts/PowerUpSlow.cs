@@ -11,7 +11,12 @@ public class PowerUpSlow : PowerUpCode
         this.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().enabled = false;
         enemyBox = GameObject.FindWithTag("EnemyBox").transform;
         for (int x = 0; x < enemyBox.childCount; x++) {
-            enemyBox.GetChild(x).gameObject.GetComponent<EnemyScript>().moveSpeed = enemyBox.GetChild(x).gameObject.GetComponent<EnemyScript>().moveSpeed / 2.0f;
+            Debug.Log(enemyBox);
+            Debug.Log(enemyBox.GetChild(x));
+            Debug.Log(enemyBox.GetChild(x).gameObject.GetComponent<EnemyScript>());
+            Debug.Log(enemyBox.GetChild(x).gameObject.GetComponent<AbstractEnemyScript>().moveSpeed);
+           
+            enemyBox.GetChild(x).gameObject.GetComponent<AbstractEnemyScript>().moveSpeed = enemyBox.GetChild(x).gameObject.GetComponent<AbstractEnemyScript>().moveSpeed / 2.0f;
         }
         enemyBox.GetComponent<SlowedDown>().slowedDown = true;
     }
@@ -32,7 +37,7 @@ public class PowerUpSlow : PowerUpCode
                 
                 for (int x = 0; x < enemyBox.childCount; x++)
                 {
-                    enemyBox.GetChild(x).gameObject.GetComponent<EnemyScript>().moveSpeed = enemyBox.GetChild(x).gameObject.GetComponent<EnemyScript>().moveSpeed * 2.0f;
+                    enemyBox.GetChild(x).gameObject.GetComponent<AbstractEnemyScript>().moveSpeed = enemyBox.GetChild(x).gameObject.GetComponent<AbstractEnemyScript>().moveSpeed * 2.0f;
                 }
                 enemyBox.GetComponent<SlowedDown>().slowedDown = false;
                 shouldUpdate = false;
