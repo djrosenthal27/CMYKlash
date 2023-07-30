@@ -92,7 +92,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: 4a9f5346bee85114bb37d64e936aa7b3, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 31ba0feb5c8b7da4e9c12161795edd2f, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -117,6 +117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 5300218219950773571, guid: 9196f171ce7d3464da84c7cd1c4a53e9, type: 3}
   rigidBody: {fileID: -8882395036251673963}
+  sprite: {fileID: 0}
   angleChangingSpeed: 2
   movementSpeed: 2
 --- !u!50 &-8882395036251673963

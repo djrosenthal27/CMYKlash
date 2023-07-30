@@ -51,7 +51,7 @@ public class SpawnerScript : MonoBehaviour
                     y = -6;
                 }
             }
-            if (true){
+            if (Random.Range(0,2) == 0){
                 Instantiate(Homing, new Vector3(x, y, transform.position.z), transform.rotation);
             }
             else

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class HomingScript : MonoBehaviour
 {
-    public GameObject target;
-    public Rigidbody2D rigidBody;
+    public Transform target;
+    public Rigidbody2D rb;
     public SpriteRenderer sprite;
-    public float angleChangingSpeed = 10;
-    public float movementSpeed = 2;
+    public float speed = 5f;
+    public float rotateSpeed = 200f;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,21 +27,21 @@ public class HomingScript : MonoBehaviour
         {
             this.tag = "Magenta";
         }
-        rigidBody = GetComponent<Rigidbody2D>();
-        target = GameObject.FindGameObjectWithTag("Player");
+        rb = GetComponent<Rigidbody2D>();
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        Vector2 direction = (Vector2)target.transform.position - rigidBody.position;
+        Vector2 direction = (Vector2)target.position - rb.position;
+
         direction.Normalize();
+
         float rotateAmount = Vector3.Cross(direction, transform.up).z;
-        rigidBody.angularVelocity = -angleChangingSpeed * rotateAmount;
-        rigidBody.velocity = transform.up * movementSpeed;
-        if (transform.position.x < -18 || transform.position.y < -12 || transform.position.x > 18 || transform.position.y > 12)
-        {
-            Destroy(gameObject);
-        }
+
+        rb.angularVelocity = -rotateAmount * rotateSpeed;
+
+        rb.velocity = transform.up * speed;
     }
 }
