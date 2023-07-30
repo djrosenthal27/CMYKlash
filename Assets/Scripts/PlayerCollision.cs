@@ -17,13 +17,8 @@ public class PlayerCollision : MonoBehaviour
         GameObject player = GameObject.FindWithTag("Player");
       //  Debug.Log(player.GetComponent<PlayerMovement>().GetState());
         
-      /*  player.transform.GetChild(1).gameObject.GetComponent<PolygonCollider2D>().enabled = false;
-        player.transform.GetChild(2).gameObject.GetComponent<PolygonCollider2D>().enabled = false;
-        player.transform.GetChild(3).gameObject.GetComponent<PolygonCollider2D>().enabled = false;
-        player.transform.GetChild(4).gameObject.GetComponent<CircleCollider2D>().enabled = false;
-        player.transform.GetChild(5).gameObject.GetComponent<CircleCollider2D>().enabled = false;
-        player.transform.GetChild(6).gameObject.GetComponent<CircleCollider2D>().enabled = false;
-      */
+
+      
 
         collider.gameObject.GetComponent<Collider2D>().enabled = false;
         //collider.gameObject.GetComponent<EnemyScript>().collided = true;
@@ -31,12 +26,20 @@ public class PlayerCollision : MonoBehaviour
         if (!collider.gameObject.GetComponent<Collidable>().collided)
         {
             collider.gameObject.GetComponent<Collidable>().collided = true;
-            Debug.Log("Enemy:" + colliderTag + " Player:" + gameObjectTag);
+            player.transform.GetChild(1).gameObject.GetComponent<PolygonCollider2D>().enabled = false;
+            player.transform.GetChild(2).gameObject.GetComponent<PolygonCollider2D>().enabled = false;
+            player.transform.GetChild(3).gameObject.GetComponent<PolygonCollider2D>().enabled = false;
+            player.transform.GetChild(4).gameObject.GetComponent<CircleCollider2D>().enabled = false;
+            player.transform.GetChild(5).gameObject.GetComponent<CircleCollider2D>().enabled = false;
+            player.transform.GetChild(6).gameObject.GetComponent<CircleCollider2D>().enabled = false;
+
+            //  Debug.Log("Enemy:" + colliderTag + " Player:" + gameObjectTag);
             if ((colliderTag == "Yellow" && (gameObjectTag == "Yellow" || gameObjectTag == "Red" || gameObjectTag == "Green"))
                 || (colliderTag == "Magenta" && (gameObjectTag == "Magenta" || gameObjectTag == "Red" || gameObjectTag == "Blue"))
                 || (colliderTag == "Cyan" && (gameObjectTag == "Cyan" || gameObjectTag == "Blue" || gameObjectTag == "Green")))
             {
-                Destroy(collider.gameObject, 0.0f);
+                GameObject.FindWithTag("Board").GetComponent<ControlPoints>().DefeatEnemy(collider.gameObject);                
+                
                 player.transform.GetChild(1).gameObject.GetComponent<PolygonCollider2D>().enabled = true;
                 player.transform.GetChild(2).gameObject.GetComponent<PolygonCollider2D>().enabled = true;
                 player.transform.GetChild(3).gameObject.GetComponent<PolygonCollider2D>().enabled = true;
@@ -206,6 +209,7 @@ public class PlayerCollision : MonoBehaviour
                 }
                 else if (player.GetComponent<PlayerMovement>().GetState() == "Dot")
                 {
+                    GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().SetState("Dead");
                     if (player.transform.GetChild(4).gameObject.activeSelf)
                     {
                         player.GetComponent<PlayerMovement>().movementSpeed = 0;

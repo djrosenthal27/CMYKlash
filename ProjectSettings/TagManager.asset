@@ -13,6 +13,7 @@ TagManager:
   - White
   - Powerup
   - EnemyBox
+  - Board
   layers:
   - Default
   - TransparentFX
@@ -52,4 +53,7 @@ TagManager:
     locked: 0
   - name: Wall
     uniqueID: 3010534567
+    locked: 0
+  - name: UI
+    uniqueID: 3069698721
     locked: 0

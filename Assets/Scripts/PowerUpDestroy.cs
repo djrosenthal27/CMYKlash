@@ -12,7 +12,7 @@ public class PowerUpDestroy : PowerUpCode
         enemyBox = GameObject.FindWithTag("EnemyBox").transform;
         for (int x = 0; x < enemyBox.childCount; x++)
         {
-            Destroy(enemyBox.GetChild(x).gameObject, 0.0f);
+            GameObject.FindWithTag("Board").GetComponent<ControlPoints>().DefeatEnemy(enemyBox.GetChild(x).gameObject);
         }
     }
 
