@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.Animations;
+//using UnityEditor.Animations;
 
 public class EnemyScript : AbstractEnemyScript
 {
@@ -9,11 +9,11 @@ public class EnemyScript : AbstractEnemyScript
     public SpriteRenderer sprite;
     public int dir = 0;
     public Sprite cyanCircle;
-    public AnimatorController cyanPop;
+    public RuntimeAnimatorController cyanPop;
     public Sprite yellowCircle;
-    public AnimatorController yellowPop;
+    public RuntimeAnimatorController yellowPop;
     public Sprite magentaCircle;
-    public AnimatorController magentaPop;
+    public RuntimeAnimatorController magentaPop;
     // Start is called before the first frame update
     void Start()
     {

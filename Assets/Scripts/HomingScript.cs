@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.Animations;
+//using UnityEditor.Animations;
 
 public class HomingScript : AbstractEnemyScript
 {
@@ -11,11 +11,11 @@ public class HomingScript : AbstractEnemyScript
    // public float moveSpeed = 5f;
     public float rotateSpeed = 200f;
     public Sprite cyanSquare;
-    public AnimatorController cyanFizz;
+    public RuntimeAnimatorController cyanFizz;
     public Sprite yellowSquare;
-    public AnimatorController yellowFizz;
+    public RuntimeAnimatorController yellowFizz;
     public Sprite magentaSquare;
-    public AnimatorController magentaFizz;
+    public RuntimeAnimatorController magentaFizz;
     float timer;
     // Start is called before the first frame update
     void Start()
