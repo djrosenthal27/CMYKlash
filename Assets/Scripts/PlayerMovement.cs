@@ -41,6 +41,18 @@ public class PlayerMovement : MonoBehaviour
         {
             yMove = 0;
         }
+        if (Input.GetKey("w") && !Input.GetKey("s"))
+        {
+            yMove = 1;
+        }
+        if (!Input.GetKey("w") && Input.GetKey("s"))
+        {
+            yMove = -1;
+        }
+        if (!Input.GetKey("w") && !Input.GetKey("s"))
+        {
+            yMove = 0;
+        }
         if (Input.GetKeyDown("d"))
         {
             xMove = 1;
@@ -53,6 +65,14 @@ public class PlayerMovement : MonoBehaviour
         {
             xMove = 0;
         }
+        if (Input.GetKey("d") && !Input.GetKey("a"))
+        {
+            xMove = 1;
+        }
+        if (!Input.GetKey("d") && Input.GetKey("a"))
+        {
+            xMove = -1;
+        }
         if (Input.GetKeyDown("right"))
         {
             rotation = -1;
@@ -64,6 +84,14 @@ public class PlayerMovement : MonoBehaviour
         if (!Input.GetKey("right") && !Input.GetKey("left"))
         {
             rotation = 0;
+        }
+        if (Input.GetKey("right") && !Input.GetKey("left"))
+        {
+            rotation = -1;
+        }
+        if (!Input.GetKey("right") && Input.GetKey("left"))
+        {
+            rotation = 1;
         }
         rb.velocity = new Vector2(movementSpeed * xMove, movementSpeed * yMove);
         rb.angularVelocity = rotation * rotationSpeed;
