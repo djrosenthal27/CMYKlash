@@ -463,8 +463,9 @@ GameObject:
   - component: {fileID: 5484605741398157078}
   - component: {fileID: 5484605741398157079}
   - component: {fileID: 5484605741398157067}
+  - component: {fileID: 4809487381292031909}
   m_Layer: 5
-  m_Name: ScoreCanvas
+  m_Name: OldScoreCanvas
   m_TagString: Board
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -566,3 +567,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a5345d6b5b97494f84bafc4bc4c6cdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4809487381292031909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5484605741398157072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3eade82f24d94c247ba702a174806094, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boundaryPiece: {fileID: 0}
+  bPause: {fileID: 0}
+  bResume: {fileID: 0}
+  bRestart: {fileID: 0}
+  bMenu: {fileID: 0}

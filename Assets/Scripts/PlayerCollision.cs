@@ -231,45 +231,11 @@ public class PlayerCollision : MonoBehaviour
                     }
                 }
                 collider.gameObject.GetComponent<SpriteRenderer>().color = new Color(200, 200, 200, 0.2f);
-               /* float timer = 0;
-                if (timer < 1)
-                {
-                    timer = timer + Time.deltaTime;
-                } else
-                {
-                    collider.gameObject.GetComponent<Collider2D>().enabled = true;
-                    collider.gameObject.GetComponent<Collidable>().collided = false;
-                }*/
+              
             }
         }
-      //  yield return new WaitForSeconds(0.0f);
     }
 
-   // IEnumerator Reactivate()
-  //  {
-
-   // }
 
 
 }
-
-/**
-
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class ZapOut : MonoBehaviour
-{
-    public void Zap()
-    {
-        while (transform.localScale.x > 0)
-        {
-            gameObject.transform.localScale = new Vector3(-.1f, .1f, 0);
-        }
-        gameObject.SetActive(false);
-    }
-}
-
-**/
-

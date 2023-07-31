@@ -39,4 +39,9 @@ public class UpdateScore : MonoBehaviour
             }
         }
     }
+
+    public int GetScore()
+    {
+        return score;
+    }
 }

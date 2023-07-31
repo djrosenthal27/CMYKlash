@@ -9,6 +9,12 @@ public class PopAnimation : MonoBehaviour
     {
         parent.gameObject.SetActive(false);
         this.gameObject.SetActive(false);
+        if (GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().GetState() == "Dead")
+        {
+            GameObject.FindWithTag("Board").transform.GetChild(4).gameObject.SetActive(true);
+            GameObject.FindWithTag("Board").transform.GetChild(4).GetChild(0).gameObject.SetActive(false);
+            GameObject.FindWithTag("Board").transform.GetChild(4).GetChild(3).gameObject.SetActive(true);
+        }
     }
 
     public void RemoveSprite()
