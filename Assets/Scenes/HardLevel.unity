@@ -350,6 +350,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5300218221056656002, guid: 9196f171ce7d3464da84c7cd1c4a53e9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9196f171ce7d3464da84c7cd1c4a53e9, type: 3}
 --- !u!1001 &686012184
@@ -546,6 +550,10 @@ PrefabInstance:
       propertyPath: boundaryPiece
       value: 
       objectReference: {fileID: 415305835}
+    - target: {fileID: 7239114998150579412, guid: 171bafcdb43173a459c7caa863dafbac, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 250
+      objectReference: {fileID: 0}
     - target: {fileID: 7501121961136881058, guid: 171bafcdb43173a459c7caa863dafbac, type: 3}
       propertyPath: m_Camera
       value: 
@@ -638,7 +646,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3077538677218283125, guid: 171bafcdb43173a459c7caa863dafbac, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 171bafcdb43173a459c7caa863dafbac, type: 3}
 --- !u!1 &783637764 stripped
 GameObject:
@@ -654,7 +663,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 888974089}
-  - component: {fileID: 888974090}
+  - component: {fileID: 888974091}
   m_Layer: 0
   m_Name: HardSpawner
   m_TagString: Untagged
@@ -677,7 +686,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &888974090
+--- !u!114 &888974091
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -686,13 +695,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 888974087}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00d1d044ca87064478d82ec40373c603, type: 3}
+  m_Script: {fileID: 11500000, guid: c7d4275fec40c714d9b747067f392647, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: {fileID: 395758883973394130, guid: 4119d4232580aeb4b80d85e2299976b0, type: 3}
   Homing: {fileID: 395758883973394130, guid: a68ebd1f7e183844799dbe357dd40fdd, type: 3}
   spawnRate: 0.8
-  timer: 0
+  spawnSpeedUpValue1: 0.1
+  spawnSpeedUpValue2: 0.1
+  homingRate: 3
   box: {fileID: 307374422}
 --- !u!1 &1816492343
 GameObject:

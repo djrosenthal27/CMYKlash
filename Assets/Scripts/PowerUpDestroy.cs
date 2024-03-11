@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Handles the Destroy (Bomb) Powerup
 public class PowerUpDestroy : PowerUpCode
 {
     Transform enemyBox;
+
+    // Destroys all enemies on screen and updates player's points for each one
     public override void Activate()
     {
-     //   Debug.Log("Kaboom!");
         this.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().enabled = false;
         enemyBox = GameObject.FindWithTag("EnemyBox").transform;
         for (int x = 0; x < enemyBox.childCount; x++)
@@ -16,6 +18,7 @@ public class PowerUpDestroy : PowerUpCode
         }
     }
 
+    // Displays appropriate timer text for the duration of the Powerup
     public override void Update()
     {
         if (shouldUpdate)

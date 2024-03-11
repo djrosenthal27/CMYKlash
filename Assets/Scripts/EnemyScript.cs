@@ -1,74 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using UnityEditor.Animations;
 
+// Handles the Circle (Normal) Enemy movement
 public class EnemyScript : AbstractEnemyScript
 {
-   // public float moveSpeed = 2;
-    public SpriteRenderer sprite;
-    public int dir = 0;
-    public Sprite cyanCircle;
-    public RuntimeAnimatorController cyanPop;
-    public Sprite yellowCircle;
-    public RuntimeAnimatorController yellowPop;
-    public Sprite magentaCircle;
-    public RuntimeAnimatorController magentaPop;
-    // Start is called before the first frame update
+
+    private Vector3 dir;
+
+    // Initializes the enemy's color and determines the direction it moves in based on its starting location
     void Start()
     {
-        sprite = GetComponent<SpriteRenderer>();
-        Color[] colors = {Color.cyan, Color.yellow, Color.magenta};
-        sprite.color = colors[Random.Range(0, 3)];
-        if (sprite.color == Color.cyan)
-        {
-            this.tag = "Cyan";
-            sprite.sprite = cyanCircle;
-            GetComponent<Animator>().runtimeAnimatorController = cyanPop;
-        }
-        if (sprite.color == Color.yellow)
-        {
-            this.tag = "Yellow";
-            sprite.sprite = yellowCircle;
-            GetComponent<Animator>().runtimeAnimatorController = yellowPop;
-        }
-        if (sprite.color == Color.magenta)
-        {
-            this.tag = "Magenta";
-            sprite.sprite = magentaCircle;
-            GetComponent<Animator>().runtimeAnimatorController = magentaPop;
-        }
+        Initialize();
         switch (transform.position.x)
         {
             case 10:
-                dir = 0;
+                dir = Vector3.left;
                 break;
             case -10:
-                dir = 1;
+                dir = Vector3.right;
                 break;
         }
         switch (transform.position.y)
         {
             case 6:
-                dir = 2;
+                dir = Vector3.down;
                 break;
             case -6:
-                dir = 3;
+                dir = Vector3.up;
                 break;
         }
     }
 
-    // Update is called once per frame
+    // Moves the enemy each frame and destroys the enemy when they are out-of-bounds
     void Update()
     {
-        if (dir == 0)
-            transform.position = transform.position + (Vector3.left * moveSpeed * Time.deltaTime);
-        if (dir == 1)
-            transform.position = transform.position + (Vector3.right * moveSpeed * Time.deltaTime);
-        if (dir == 2)
-            transform.position = transform.position + (Vector3.down * moveSpeed * Time.deltaTime);
-        if (dir == 3)
-            transform.position = transform.position + (Vector3.up * moveSpeed * Time.deltaTime);
+        transform.position = transform.position + (dir * moveSpeed * Time.deltaTime);
 
         if (transform.position.x < -14 || transform.position.y < -10 || transform.position.x > 14 || transform.position.y > 10)
         {
@@ -76,6 +43,7 @@ public class EnemyScript : AbstractEnemyScript
         }
     }
 
+    // Destroys the Circle Enemy
     public void DestroySelf()
     {
         Destroy(this.gameObject, 0.0f);

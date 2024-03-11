@@ -461,13 +461,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1234696071}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2e1cd43d7675d44e8de4bffaad35a44, type: 3}
+  m_Script: {fileID: 11500000, guid: c7d4275fec40c714d9b747067f392647, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: {fileID: 395758883973394130, guid: 4119d4232580aeb4b80d85e2299976b0, type: 3}
   Homing: {fileID: 395758883973394130, guid: a68ebd1f7e183844799dbe357dd40fdd, type: 3}
   spawnRate: 1.2
-  timer: 0
+  spawnSpeedUpValue1: 0.2
+  spawnSpeedUpValue2: 0.1
+  homingRate: 4
   box: {fileID: 1731785572}
 --- !u!1 &1496530832
 GameObject:

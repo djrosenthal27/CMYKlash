@@ -148,7 +148,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f65aaabf24e1e784088c084e685d3b7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerupText: {fileID: 8393056796381534226}
 --- !u!1 &1430588976325229768
 GameObject:
   m_ObjectHideFlags: 0
@@ -1175,7 +1174,6 @@ GameObject:
   - component: {fileID: 4396721570239312075}
   - component: {fileID: 7931718588058300588}
   - component: {fileID: 4386265954247632349}
-  - component: {fileID: 3077538677218283125}
   m_Layer: 5
   m_Name: Pause
   m_TagString: Untagged
@@ -1287,18 +1285,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &3077538677218283125
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5898170372406439893}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57bf7c33519680344972e333b1dbb810, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5992306614416546731
 GameObject:
   m_ObjectHideFlags: 0

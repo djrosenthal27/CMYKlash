@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Controls the Player's movement abilities
 public class PlayerMovement : MonoBehaviour
 {
     public float movementSpeed;
@@ -10,11 +11,13 @@ public class PlayerMovement : MonoBehaviour
     float initMoveSpeed;
     float initRotationSpeed;
     Rigidbody2D rb;
-    int xMove;
-    int yMove;
+    float xMove;
+    float yMove;
     int rotation;
+    int recentHorizontalDirection;
+    int recentVerticalDirection;
 
-    // Start is called before the first frame update
+    // Initializes variables
     void Start()
     {
         initMoveSpeed = movementSpeed;
@@ -23,61 +26,51 @@ public class PlayerMovement : MonoBehaviour
         xMove = 0;
         yMove = 0;
         rotation = 0;
-        //state = "Triangle";
+        recentHorizontalDirection = 0;
     }
 
-    // Update is called once per frame
+    // Moves player on update based on button inputs
     void Update()
     {
-        if (Input.GetKeyDown("w")) 
+        if (Input.GetKeyDown("w") || Input.GetKeyDown("z"))
         {
-            yMove = 1;
+            recentVerticalDirection = 1;
         }
         if (Input.GetKeyDown("s"))
         {
-            yMove = -1;
+            recentVerticalDirection = -1;
         }
-        if (!Input.GetKey("w") && !Input.GetKey("s"))
+        if (Input.GetKeyDown("a") || Input.GetKeyDown("q"))
         {
-            yMove = 0;
-        }
-        if (Input.GetKey("w") && !Input.GetKey("s"))
-        {
-            yMove = 1;
-        }
-        if (!Input.GetKey("w") && Input.GetKey("s"))
-        {
-            yMove = -1;
-        }
-        if (!Input.GetKey("w") && !Input.GetKey("s"))
-        {
-            yMove = 0;
+            recentHorizontalDirection = -1;
         }
         if (Input.GetKeyDown("d"))
         {
-            xMove = 1;
+            recentHorizontalDirection = 1;
         }
-        if (Input.GetKeyDown("a"))
+
+        yMove = Input.GetAxisRaw("Vertical");
+        xMove = Input.GetAxisRaw("Horizontal");
+
+        // If both positive and negative x-axis buttons are pressed, move in the direction of the more-recently 
+        // pressed button. Example: if A and D are both pressed but D was pressed after A, move right
+        if (xMove == 0 && Input.GetButton("Horizontal"))
         {
-            xMove = -1;
+            xMove += recentHorizontalDirection;
         }
-        if (!Input.GetKey("d") && !Input.GetKey("a"))
+        // If both positive and negative y-axis buttons are pressed, move in the direction of the more-recently 
+        // pressed button. Example: if W and S are both pressed but S was pressed after W, move down
+        if (yMove == 0 && Input.GetButton("Vertical"))
         {
-            xMove = 0;
+            yMove += recentVerticalDirection;
         }
-        if (Input.GetKey("d") && !Input.GetKey("a"))
-        {
-            xMove = 1;
-        }
-        if (!Input.GetKey("d") && Input.GetKey("a"))
-        {
-            xMove = -1;
-        }
-        if (Input.GetKeyDown("right"))
+        
+        // If the left and/or right arrow keys are pressed, rotate in the direction of the more-recently pressed button
+        if (Input.GetKeyDown("right") || (Input.GetKey("right") && !Input.GetKey("left")))
         {
             rotation = -1;
         }
-        if (Input.GetKeyDown("left"))
+        if (Input.GetKeyDown("left") || (!Input.GetKey("right") && Input.GetKey("left")))
         {
             rotation = 1;
         }
@@ -85,33 +78,30 @@ public class PlayerMovement : MonoBehaviour
         {
             rotation = 0;
         }
-        if (Input.GetKey("right") && !Input.GetKey("left"))
-        {
-            rotation = -1;
-        }
-        if (!Input.GetKey("right") && Input.GetKey("left"))
-        {
-            rotation = 1;
-        }
+
         rb.velocity = new Vector2(movementSpeed * xMove, movementSpeed * yMove);
         rb.angularVelocity = rotation * rotationSpeed;
     }
 
+    // Sets the player state: Triangle, Line, Dot, or Dead
     public void SetState(string newState)
     {
         state = newState;
     }
 
+    // Returns player state
     public string GetState()
     {
         return state;
     }
 
+    // Returns the player's initial move speed
     public float GetInitMoveSpeed()
     {
         return initMoveSpeed;
     }
 
+    // Returns the player's initial rotation speed
     public float GetInitRotationSpeed()
     {
         return initRotationSpeed;

@@ -1,52 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using UnityEditor.Animations;
 
+// Handles the Square (Homing) Enemy movement
 public class HomingScript : AbstractEnemyScript
 {
     public Transform target;
-    public Rigidbody2D rb;
-    public SpriteRenderer sprite;
-   // public float moveSpeed = 5f;
     public float rotateSpeed = 200f;
-    public Sprite cyanSquare;
-    public RuntimeAnimatorController cyanFizz;
-    public Sprite yellowSquare;
-    public RuntimeAnimatorController yellowFizz;
-    public Sprite magentaSquare;
-    public RuntimeAnimatorController magentaFizz;
-    float timer;
-    // Start is called before the first frame update
+
+
+    private float timer;
+    private Rigidbody2D rb;
+
+    // Initializes the enemy's color and the target for them to home in on (the player)
     void Start()
     {
+        Initialize();
         timer = 0;
-        sprite = GetComponent<SpriteRenderer>();
-        Color[] colors = { Color.cyan, Color.yellow, Color.magenta };
-        sprite.color = colors[Random.Range(0, 3)];
-        if (sprite.color == Color.cyan)
-        {
-            this.tag = "Cyan";
-            sprite.sprite = cyanSquare;
-            GetComponent<Animator>().runtimeAnimatorController = cyanFizz;
-        }
-        if (sprite.color == Color.yellow)
-        {
-            this.tag = "Yellow";
-            sprite.sprite = yellowSquare;
-            GetComponent<Animator>().runtimeAnimatorController = yellowFizz;
-        }
-        if (sprite.color == Color.magenta)
-        {
-            this.tag = "Magenta";
-            sprite.sprite = magentaSquare;
-            GetComponent<Animator>().runtimeAnimatorController = magentaFizz;
-        }
         rb = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
-    // Update is called once per frame
+    // Rotates and moves the homing enemy toward the player each frame for 10 seconds. After 10 seconds, the enemy no
+    // longer follows the player and is destroyed when it goes out-of-bounds
     void FixedUpdate()
     {
 
@@ -74,11 +50,13 @@ public class HomingScript : AbstractEnemyScript
         }
     }
 
+    // Destroys the homing enemy
     public void DestroySelf()
     {
         Destroy(this.gameObject, 0.0f);
     }
 
+    // Destroys the homing enemy's child, which is a directional pointer
     public void DestroyChild()
     {
         this.gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().enabled = false;

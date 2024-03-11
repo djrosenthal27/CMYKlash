@@ -51,16 +51,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
+  cyanSprite: {fileID: 21300000, guid: 4fd5f6d7f645d0044a2d1d481fb389bf, type: 3}
+  cyanAnim: {fileID: 9100000, guid: 290163737884f314894a8f7a4974b163, type: 2}
+  yellowSprite: {fileID: 21300000, guid: 3295d44fc46ceb745a9ab6d580c187bc, type: 3}
+  yellowAnim: {fileID: 9100000, guid: 4ea1e09fd23404d4b982514302ae9f0f, type: 2}
+  magentaSprite: {fileID: 21300000, guid: 540a9e7954e370a4abec44cb53e77f8e, type: 3}
+  magentaAnim: {fileID: 9100000, guid: 27e285c8f32ed3c42bd0c9537a7c61b3, type: 2}
   target: {fileID: 5300218219950773571, guid: 9196f171ce7d3464da84c7cd1c4a53e9, type: 3}
-  rb: {fileID: 0}
-  sprite: {fileID: 0}
   rotateSpeed: 200
-  cyanSquare: {fileID: 21300000, guid: 4fd5f6d7f645d0044a2d1d481fb389bf, type: 3}
-  cyanFizz: {fileID: 9100000, guid: 290163737884f314894a8f7a4974b163, type: 2}
-  yellowSquare: {fileID: 21300000, guid: 3295d44fc46ceb745a9ab6d580c187bc, type: 3}
-  yellowFizz: {fileID: 9100000, guid: 4ea1e09fd23404d4b982514302ae9f0f, type: 2}
-  magentaSquare: {fileID: 21300000, guid: 540a9e7954e370a4abec44cb53e77f8e, type: 3}
-  magentaFizz: {fileID: 9100000, guid: 27e285c8f32ed3c42bd0c9537a7c61b3, type: 2}
 --- !u!50 &-8882395036251673963
 Rigidbody2D:
   serializedVersion: 4

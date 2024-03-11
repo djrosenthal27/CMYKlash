@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Handles the Recover (Tetrahedron) Powerup
 public class PowerUpRecover : PowerUpCode
 {
     public GameObject Player;
@@ -11,10 +12,13 @@ public class PowerUpRecover : PowerUpCode
     public float powerSpinDuration;
     bool shouldPowerSpin;
 
+    // Recovers a vertex for the player. Effects depend on player's current state
     public override void Activate()
     {
         shouldPowerSpin = false;
-        Debug.Log("Regen");
+
+        // If player is a triangle, indicate that Power-Spin mode should be active and play Power-Spin animation.
+        // Power-Spin is temporary invincibility that defeats any enemies that come in contact
         if (GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().GetState() == "Triangle")
         {
             GameObject.FindWithTag("Player").transform.GetChild(0).gameObject.SetActive(false);
@@ -22,14 +26,17 @@ public class PowerUpRecover : PowerUpCode
             GameObject.FindWithTag("Player").transform.GetChild(11).gameObject.GetComponent<Animator>().SetTrigger("Active");
             shouldPowerSpin = true;
         }
+        // If player is a line, replace player object with a full-health triangle player.
+        // Give temporary invincibility where the player cannot attack enemies
         else if (GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().GetState() == "Line")
         {
             Vector3 pos = GameObject.FindWithTag("Player").transform.position;
             Quaternion rotation = GameObject.FindWithTag("Player").transform.rotation;
             Destroy(GameObject.FindWithTag("Player"), 0.0f);
-            //Instantiate(Player, pos, rotation);
             this.gameObject.GetComponent<TempRegenInvincibility>().Restart(Instantiate(Player, pos, rotation));
         }
+        // If player is a dot, replace player with a line player depending on which dot is active. 
+        // Give temporary invincibility where the player cannot attack enemies
         else if (GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().GetState() == "Dot")
         {
             if (GameObject.FindWithTag("Player").transform.GetChild(4).gameObject.activeSelf)
@@ -37,7 +44,6 @@ public class PowerUpRecover : PowerUpCode
                 Vector3 pos = GameObject.FindWithTag("Player").transform.position;
                 Quaternion rotation = GameObject.FindWithTag("Player").transform.rotation;
                 Destroy(GameObject.FindWithTag("Player"), 0.0f);
-              //  Instantiate(YeMaPlayer, pos, rotation);
                 this.gameObject.GetComponent<TempRegenInvincibility>().Restart(Instantiate(YeMaPlayer, pos, rotation));
             }
             else if (GameObject.FindWithTag("Player").transform.GetChild(5).gameObject.activeSelf)
@@ -45,7 +51,6 @@ public class PowerUpRecover : PowerUpCode
                 Vector3 pos = GameObject.FindWithTag("Player").transform.position;
                 Quaternion rotation = GameObject.FindWithTag("Player").transform.rotation;
                 Destroy(GameObject.FindWithTag("Player"), 0.0f);
-              //  Instantiate(MaCyPlayer, pos, rotation);
                 this.gameObject.GetComponent<TempRegenInvincibility>().Restart(Instantiate(MaCyPlayer, pos, rotation));
             }
 
@@ -54,27 +59,28 @@ public class PowerUpRecover : PowerUpCode
                 Vector3 pos = GameObject.FindWithTag("Player").transform.position;
                 Quaternion rotation = GameObject.FindWithTag("Player").transform.rotation;
                 Destroy(GameObject.FindWithTag("Player"), 0.0f);
-               // Instantiate(CyYePlayer, pos, rotation);
                 this.gameObject.GetComponent<TempRegenInvincibility>().Restart(Instantiate(CyYePlayer, pos, rotation));
             }
 
             GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().SetState("Line");
-           // Debug.Log(GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().GetState());
         }
 
     }
 
+    // Displays appropriate timer text for the duration of the powerup
     public override void Update()
     {
         if (shouldUpdate)
         {
             if (shouldPowerSpin)
             {
+                // If Power-Spin is active, display appropriate text
                 if (timer < powerSpinDuration)
                 {
                     GameObject.FindWithTag("Board").transform.GetChild(2).gameObject.GetComponent<DisplayPowerup>().Display("Invincibility: " + (int)(powerSpinDuration - timer));
                     timer = timer + Time.deltaTime;
                 }
+                // If timer exceeds duration, end the Power-Spin mode
                 else
                 {
                     GameObject.FindWithTag("Player").transform.GetChild(0).gameObject.SetActive(true);
@@ -86,11 +92,13 @@ public class PowerUpRecover : PowerUpCode
             } 
             else
             {
+                // If temporary invicibility is active, display appropriate text
                 if (timer < duration)
                 {
                     GameObject.FindWithTag("Board").transform.GetChild(2).gameObject.GetComponent<DisplayPowerup>().Display("Recover");
                     timer = timer + Time.deltaTime;
                 }
+                // If timer exceeds duration, clear the powerup text
                 else
                 {
                     this.gameObject.GetComponent<TempRegenInvincibility>().Reactivate();

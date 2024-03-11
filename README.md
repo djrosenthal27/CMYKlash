@@ -1,4 +1,6 @@
 # CMYKlash
+Play at https://sirdj27.itch.io/cmyklash
+
 CMYKlash is a bullet-hell where you must master controlling a Triangle, a Line, and a Dot to earn points by defeating enemies while trying to stay alive. This submission for IcoJam 2023 takes the theme of "3... 2.. 1." by giving the player three vertices to start with before taking away one at a time as they take damage, challenging the player to gain as many points as possible before all their vertices are gone.
 
 # Controls

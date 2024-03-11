@@ -19,7 +19,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &395758883973394135
 Transform:
@@ -117,14 +117,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
-  sprite: {fileID: 0}
-  dir: 0
-  cyanCircle: {fileID: 21300000, guid: 652f38f5d1bbe5f4da1525863bbfc506, type: 3}
-  cyanPop: {fileID: 9100000, guid: ee1378f88461a544f8b2b74e37a71ae6, type: 2}
-  yellowCircle: {fileID: 21300000, guid: eb9822d1d2a813a48bc53a01beb927a7, type: 3}
-  yellowPop: {fileID: 9100000, guid: f3735125a303f614eadaac4be41c5931, type: 2}
-  magentaCircle: {fileID: 21300000, guid: e88c930a1e4847a44b2a80c07670fbfb, type: 3}
-  magentaPop: {fileID: 9100000, guid: 994b2fb387e907f4b85918cd4c2baa32, type: 2}
+  cyanSprite: {fileID: 21300000, guid: 652f38f5d1bbe5f4da1525863bbfc506, type: 3}
+  cyanAnim: {fileID: 9100000, guid: ee1378f88461a544f8b2b74e37a71ae6, type: 2}
+  yellowSprite: {fileID: 21300000, guid: eb9822d1d2a813a48bc53a01beb927a7, type: 3}
+  yellowAnim: {fileID: 9100000, guid: f3735125a303f614eadaac4be41c5931, type: 2}
+  magentaSprite: {fileID: 21300000, guid: e88c930a1e4847a44b2a80c07670fbfb, type: 3}
+  magentaAnim: {fileID: 9100000, guid: 994b2fb387e907f4b85918cd4c2baa32, type: 2}
 --- !u!114 &-6867546317943504851
 MonoBehaviour:
   m_ObjectHideFlags: 0

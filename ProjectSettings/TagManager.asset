@@ -10,10 +10,10 @@ TagManager:
   - Red
   - Blue
   - Green
-  - White
   - Powerup
   - EnemyBox
   - Board
+  - Black
   layers:
   - Default
   - TransparentFX

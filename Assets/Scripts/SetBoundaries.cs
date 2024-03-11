@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Sets the border boundaries for the level
 public class SetBoundaries : MonoBehaviour
 {
     GameObject top;
@@ -10,7 +11,7 @@ public class SetBoundaries : MonoBehaviour
     GameObject right;
     Camera mainCam;
 
-    // Start is called before the first frame update
+    // Assigns dimensions and positions of the border pieces and their colliders based on the camera
     void Start()
     {
         mainCam = Camera.main;

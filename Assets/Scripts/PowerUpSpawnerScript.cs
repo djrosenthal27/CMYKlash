@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+// Spawns Powerups in the scene
 public class PowerUpSpawnerScript : MonoBehaviour
 {
     public float spawnRate;
@@ -12,23 +13,22 @@ public class PowerUpSpawnerScript : MonoBehaviour
     public GameObject DestroyEnemies;
     float timer = 0;
     GameObject currentPowerup;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
+    // Decides on update whether or not to spawn a powerup
     void Update()
     {
+        // If PowerUp text is not blank, then a powerup is active, so timer remains at 0
         if (GameObject.FindWithTag("Board").transform.GetChild(2).GetComponent<TextMeshProUGUI>().text != "")
         {
             timer = 0;
         }
+        // If PowerUp text is blank and timer is smaller than spawnRate, wait to spawn powerup
         else if (timer < spawnRate)
         {
             timer = timer + Time.deltaTime;
         }
+        // If there is not currently a powerup in the scene and the timer reaches the spawn rate, spawn a random powerup
+        // in a random part of the scene and reset timer. Odds of spawning different powerups vary
         else if (currentPowerup == null)
         {
             int random = Random.Range(0, 10);
@@ -52,6 +52,7 @@ public class PowerUpSpawnerScript : MonoBehaviour
             }
             timer = 0;
         }
+        // If there is currently a powerup in the scene but the timer reaches the spawn rate, destroy powerup and reset timer
         else
         {
             Destroy(currentPowerup, 0.0f);
